@@ -10,13 +10,17 @@ public class VeryUsefulUtils {
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 
-		outputUTF8(System.out, (char) 0x2000, (char) 0x206f, false);
-		outputUTF8(System.out, UNICODE_BLOCKS.GENERAL_PUNCTUATION, false);
-
 		for (UNICODE_BLOCKS unicodeBlocks : UNICODE_BLOCKS.values()) {
 			System.out.println(unicodeBlocks.toString());
 			outputUTF8(System.out, unicodeBlocks, false);
 		}
+
+		outputUTF8(System.out, (char) 0x2000, (char) 0x206f, false);
+		System.out.println();
+		
+		System.out.println(UNICODE_BLOCKS.GENERAL_PUNCTUATION.toString());
+		outputUTF8(System.out, UNICODE_BLOCKS.GENERAL_PUNCTUATION, false);
+		System.out.println();
 	}
 
 	static enum UNICODE_BLOCKS {
