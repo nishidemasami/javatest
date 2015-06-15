@@ -533,7 +533,7 @@ public class VeryUsefulUtils {
 				outputPrintStream.println();
 			}
 			
-			if (end == 0xFFFF) {
+			if (characterCode == 0xFFFF) {
 				return;
 			}
 		}
