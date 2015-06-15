@@ -1,4 +1,8 @@
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class VeryUsefulUtils {
@@ -6,8 +10,26 @@ public class VeryUsefulUtils {
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 
+		outputUTF8(System.out, (char) 0x2000, (char) 0x206f, false);
 	}
 
+
+	static void outputUTF8(PrintStream outputPrintStream, char start, char end, boolean simpleOutput) {
+
+		for (char characterCode = start; characterCode <= end; ++characterCode) {
+
+			if (!simpleOutput && (characterCode % 16 == 0 || characterCode == start)) {
+				outputPrintStream.print("U+" + Integer.toHexString(characterCode));
+			}
+
+			outputPrintStream.print(" ");
+			outputPrintStream.print(characterCode);
+
+			if ((characterCode + 1) % 16 == 0) {
+				outputPrintStream.println();
+			}
+		}
+	}
 
 	static BigInteger fact(int n) {
 		if (n <= 1) {
