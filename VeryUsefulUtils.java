@@ -12,6 +12,11 @@ public class VeryUsefulUtils {
 
 		outputUTF8(System.out, (char) 0x2000, (char) 0x206f, false);
 		outputUTF8(System.out, UNICODE_BLOCKS.GENERAL_PUNCTUATION, false);
+
+		for (UNICODE_BLOCKS unicodeBlocks : UNICODE_BLOCKS.values()) {
+			System.out.println(unicodeBlocks.toString());
+			outputUTF8(System.out, unicodeBlocks, false);
+		}
 	}
 
 	static enum UNICODE_BLOCKS {
@@ -526,6 +531,10 @@ public class VeryUsefulUtils {
 
 			if ((characterCode + 1) % 16 == 0) {
 				outputPrintStream.println();
+			}
+			
+			if (end == 0xFFFF) {
+				return;
 			}
 		}
 	}
