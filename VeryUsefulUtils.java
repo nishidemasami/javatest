@@ -14,6 +14,7 @@ public class VeryUsefulUtils {
 	}
 
 
+
 	static void outputUTF8(PrintStream outputPrintStream, char start, char end, boolean simpleOutput) {
 
 		for (char characterCode = start; characterCode <= end; ++characterCode) {
@@ -22,7 +23,9 @@ public class VeryUsefulUtils {
 				outputPrintStream.print("U+" + Integer.toHexString(characterCode));
 			}
 
-			outputPrintStream.print(" ");
+			if (!simpleOutput) {
+				outputPrintStream.print(" ");
+			}
 			outputPrintStream.print(characterCode);
 
 			if ((characterCode + 1) % 16 == 0) {
